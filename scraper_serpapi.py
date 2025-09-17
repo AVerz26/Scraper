@@ -22,14 +22,6 @@ categories = [
     "vegan restaurant",
 ]
 
-FRANCHISE_KEYWORDS = [
-    "mcdonald", "burger king", "taco bell", "wendy", "kfc", "subway", "domino",
-    "papa john", "starbucks", "chipotle", "dunkin", "chick", "little caesars",
-    "pizza hut", "jack in the box", "panera", "five guys", "arbys", "sonic",
-    "in-n-out", "carl's jr", "hardee", "buffalo wild wings", "wingstop"
-]
-
-
 for category in categories:
     for start in range(0, 120, 20):
         params = {
@@ -60,9 +52,8 @@ for category in categories:
             address = place.get("address", "")
             phone = place.get("phone", "")
             website = place.get("website", "")
-            
-            if not any(franchise.lower() in name.lower() for franchise in FRANCHISE_KEYWORDS):
-                all_restaurants.append([name, address, phone, website, "google_maps"])
+
+            all_restaurants.append([name, address, phone, website, "google_maps"])
 
         time.sleep(1)
 
